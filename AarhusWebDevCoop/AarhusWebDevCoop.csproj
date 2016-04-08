@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\UmbracoCms.7.3.8\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.3.8\build\UmbracoCms.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CDB00DC1-33F6-4AC4-B9F9-0F50FC69C0C1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AarhusWebDevCoop</RootNamespace>
+    <AssemblyName>AarhusWebDevCoop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="businesslogic, Version=1.0.5891.22676, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\businesslogic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.8.4\lib\net45\ClientDependency.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cms, Version=1.0.5891.22677, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\cms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="controls, Version=1.0.5891.22678, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Examine, Version=0.1.68.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.68.0\lib\Examine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.3.2.0\lib\net45\ImageProcessor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor.Web, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.5.1.0\lib\net45\ImageProcessor.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="interfaces, Version=1.0.5891.22673, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.3\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\semver.1.1.2\lib\net45\Semver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLCE4Umbraco, Version=1.0.5891.22677, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\SQLCE4Umbraco.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\TidyNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco, Version=1.0.5891.22679, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\umbraco.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Core, Version=1.0.5891.22674, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\Umbraco.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco.DataLayer, Version=1.0.5891.22676, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\umbraco.DataLayer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco.editorControls, Version=1.0.5891.22681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\umbraco.editorControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco.MacroEngines, Version=1.0.5891.22682, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\umbraco.MacroEngines.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco.providers, Version=1.0.5891.22678, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\umbraco.providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Web.UI, Version=1.0.5891.22682, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\Umbraco.Web.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UmbracoExamine, Version=0.7.0.22677, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.3.8\lib\UmbracoExamine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UrlRewritingNet.UrlRewriter, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UrlRewritingNet.2.0.7\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\aarhuswebdevcoop.mdf" />
+    <Content Include="App_Data\aarhuswebdevcoop_log.ldf">
+      <DependentUpon>aarhuswebdevcoop.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\cache\0\3\a\a\2\a\03aa2a603cdc3990787076ca736a18c81289eaad.png" />
+    <Content Include="App_Data\cache\0\e\8\c\7\f\0e8c7f3026d128219fecc617d84f6a4b161fd533.png" />
+    <Content Include="App_Data\cache\1\8\4\4\0\0\18440091601a5ceb3a56f470ceca59bef967ccee.png" />
+    <Content Include="App_Data\cache\2\5\3\6\f\c\2536fc65688c96c15969a0ba62820002b41518db.jpg" />
+    <Content Include="App_Data\cache\2\6\a\0\1\b\26a01b40ab52440db735c9dd2cef3f2d44e1d961.png" />
+    <Content Include="App_Data\cache\2\6\d\4\4\c\26d44c683cde11fa210c71b07b03e0ccd995f7af.jpg" />
+    <Content Include="App_Data\cache\2\6\f\3\7\4\26f374b950cb86f3b33c8d8ab79715f0d3009725.png" />
+    <Content Include="App_Data\cache\2\7\2\c\d\3\272cd380f396a3673f88b1d17904fb12c4b88cf4.png" />
+    <Content Include="App_Data\cache\3\d\3\4\7\8\3d3478ef93696d1ae006900eb5adf2f60a4f8b78.jpg" />
+    <Content Include="App_Data\cache\4\3\c\6\7\9\43c6792f1932cd2d06044e02daba0a904ad9fb7a.png" />
+    <Content Include="App_Data\cache\5\4\9\7\5\0\549750dceac2ab0c2534b57f10e6b80600089951.png" />
+    <Content Include="App_Data\cache\6\2\b\8\0\b\62b80b578ed5c69ccdb4f7f416ad5117ead8f0a5.png" />
+    <Content Include="App_Data\cache\7\6\c\d\6\7\76cd676eef2b9d85096d2e5a52e22bc29b643162.png" />
+    <Content Include="App_Data\cache\7\6\e\a\c\f\76eacf8492db4b9fffcefe01914cd53b0b7b8c1c.png" />
+    <Content Include="App_Data\cache\8\1\1\d\8\7\811d87ce7b408dd23b6416b7b2e190d2c09218e7.png" />
+    <Content Include="App_Data\cache\8\2\0\8\d\b\8208db76817b5dbebf3419b83814b2d67606b857.png" />
+    <Content Include="App_Data\cache\8\2\6\1\d\a\8261da4ba30dd62617a17f5007f372385847ca6a.png" />
+    <Content Include="App_Data\cache\8\c\e\f\7\2\8cef725b9b67c726ff4f76eec034da8b104cfcd0.png" />
+    <Content Include="App_Data\cache\9\1\8\4\9\7\918497a3ab7a01629c18a455140a12e9fd9c44f4.png" />
+    <Content Include="App_Data\cache\9\3\c\5\d\c\93c5dcf1f0baf0b023da3dcd25cbd6ffebb6b34d.png" />
+    <Content Include="App_Data\cache\9\9\1\4\3\5\9914350f9fcbc71d9a1e56de4a5e9fee2cda8f37.png" />
+    <Content Include="App_Data\cache\a\3\f\6\2\1\a3f62105aa0991e3d1667530f557c2ca19c47e34.jpg" />
+    <Content Include="App_Data\cache\a\7\9\c\6\1\a79c613fde51bfb2698f1ca97ad2b02199d28d1a.jpg" />
+    <Content Include="App_Data\cache\a\d\d\5\7\8\add5788b56fc2db56bdf62a8a938ad6090f57db1.png" />
+    <Content Include="App_Data\cache\b\a\f\1\a\c\baf1ac713ed24bff79efbe0071f51a3d21328715.png" />
+    <Content Include="App_Data\cache\b\b\d\0\b\3\bbd0b3571d467961fbffe696aa22f9dc50efad2f.png" />
+    <Content Include="App_Data\cache\c\3\6\9\4\0\c3694020bb10d8b35913851a04dde5e3998d8445.png" />
+    <Content Include="App_Data\cache\d\7\8\7\8\5\d78785d2661305e52e142a1a672606e56058a578.png" />
+    <Content Include="App_Data\cache\d\e\2\7\b\4\de27b4d42c31575e5a71beb1b0ef52346e711af6.png" />
+    <Content Include="App_Data\cache\e\0\2\6\1\c\e0261c2133af5732e279c1126cb7fe3a0beada45.jpg" />
+    <Content Include="App_Data\cache\f\e\e\3\9\0\fee390bc375f86bc5e430f20950b6f2f8099ef64.png" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.WebDev-PC.txt" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\AutoMapper.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\AutoMapper.Net4.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\businesslogic.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\ClientDependency.Core.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\ClientDependency.Core.Mvc.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\cms.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\controls.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\CookComputing.XmlRpcV2.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Examine.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\HtmlAgilityPack.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\ImageProcessor.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\ImageProcessor.Web.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\interfaces.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\log4net.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Lucene.Net.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.ApplicationBlocks.Data.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Owin.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Web.Helpers.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\MiniProfiler.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\MySql.Data.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Newtonsoft.Json.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Owin.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Semver.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\SQLCE4Umbraco.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Data.SqlServerCe.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Data.SqlServerCe.Entity.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Net.Http.Extensions.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Net.Http.Primitives.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.Helpers.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.Http.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.Http.WebHost.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.Mvc.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.Razor.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.WebPages.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\TidyNet.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Umbraco.Core.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\umbraco.DataLayer.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\umbraco.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\umbraco.editorControls.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\umbraco.MacroEngines.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\umbraco.providers.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\Umbraco.Web.UI.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\UmbracoExamine.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\UrlRewritingNet.UrlRewriter.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\WebMatrix.Data.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\bin\WebMatrix.WebData.dll" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\grid.editors.config.js" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\cs-CZ.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\da-DK.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\de-DE.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\en-GB.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\en-US.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\es-ES.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\fr-FR.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\he-IL.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\it-IT.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\ja-JP.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\ko-KR.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\nb-NO.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\nl-NL.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\pl-PL.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\pt-BR.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\ru-RU.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\sv-SE.user.xml" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Lang\zh-CN.user.xml" />
+    <Content Include="App_Data\TEMP\ClientDependency\WEBDEV-PC-6e87279301eaf2cd00d64e004b9796f8-map.xml" />
+    <Content Include="App_Data\TEMP\DistCache\WEBDEV-PC\LMW3SVC2ROOT-lastsynced.txt" />
+    <Content Include="App_Data\umbraco.licensing.log.txt" />
+    <Content Include="packages.config" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.WebDev-PC.txt.2016-04-05" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.WebDev-PC.txt.2016-04-06" />
+    <Content Include="App_Data\Logs\UmbracoTraceLog.WebDev-PC.txt.2016-04-07" />
+    <Content Include="App_Data\NuGetBackup\20160405-150910\CopyLogs\UmbracoBinBackup.log" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\404handlers.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\applications.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\BaseRestExtensions.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\ClientDependency.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\Dashboard.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\EmbeddedMedia.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\ExamineIndex.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\ExamineSettings.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\feedProxy.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\FileSystemProviders.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\log4net.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\metablogConfig.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\scripting.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\tinyMceConfig.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\trees.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\umbracoSettings.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Config\UrlRewriting.config" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\CopyLogs\ConfigBackup.log" />
+    <Content Include="App_Data\NuGetBackup\20160405-151004\Web.config" />
+    <Content Include="App_Data\packages\installed\installedPackages.config" />
+    <Content Include="App_Data\preview\0_8da6161d-f4d2-4588-bd12-c401578f34f1.config" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_3c91e80507d9449c8f954135769b2657.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_3e308214f5854f359810904edeb2f9b9.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_48dcbc9ebebb4e1c9bc819416348cfc0.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_4aa50dfb28e6464eb4ac4e88770f66b5.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_4ec095309f3e45898686f0888721ff96.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_6b70d411d7bb42a7abc2e519e50ee495.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_7f95a25207ab43e6a57309366299a78a.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_9691d8dbc98a4aabafd5494088f13dbf.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_c5117c1adc344bbca48f5e40de23407c.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_c6d697c4b090484ea185f1c1f947b927.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_dc8bcbdda8bb4118b7998661d12f5768.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\1087778830_ed879a8fe0fd46f4aabd4c4bb5dc9a29.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_072942c2252c42969d646b57507028a0.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_201be632f08a484fa31a07ab6c918e96.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_63bc2ffd9c244dc9952afa3ad2ef877b.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_6a05358cf29a46cbab34c9778aec704d.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_6f26811f155e4547adbf55b6799ab4a2.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_8c5b174b3efb40959f1167c0dbce85a6.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_91107a61012d42efb9e177c7fe2ec87e.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_9f228d083eab4b088c9b48e893ed1644.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_a704c4ad3bf64d62bb928c1b7c92dba9.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_b4a50f3ee8f340d7be4502e8ad0086d2.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_c2a0cf27c61a41719e17ea2a4c7f1b2f.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_ca6e026af506486a8da3c9547e15a2d4.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_e002cb1713474c169a21049a8dcd9bc6.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_e877ff5016d34fa48524ac1126988efe.cdJ" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_ea7d7b013fd24f05bf860bdb07bdded6.cdC" />
+    <Content Include="App_Data\TEMP\ClientDependency\2093319306_ee07ce89ccba4b4a85981698e82dda75.cdJ" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\segments.gen" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\segments_1p" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.fdt" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.fdx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.fnm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.frq" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.nrm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.prx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.tii" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.tis" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.tvd" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.tvf" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1o.tvx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\External\Index\_1p.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\segments.gen" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\segments_h" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.fdt" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.fdx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.fnm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.frq" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.nrm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.prx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.tii" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.tis" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.tvd" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.tvf" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a.tvx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_a_2.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_b.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_b_1.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_c.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_c_1.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_d.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_e.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_e_1.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_f.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_f_1.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\InternalMember\Index\_g.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\segments.gen" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\segments_31" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.fdt" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.fdx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.fnm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.frq" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.nrm" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.prx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.tii" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.tis" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.tvd" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.tvf" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32.tvx" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_32_3.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_33.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_34.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_35.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_36.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_36_1.del" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_37.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_38.cfs" />
+    <Content Include="App_Data\TEMP\ExamineIndexes\WEBDEV-PC\Internal\Index\_39.cfs" />
+    <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.WEBDEV-PC.hash" />
+    <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.WEBDEV-PC.list" />
+    <Content Include="App_Data\umbraco.config" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
+    <Content Include="Config\UrlRewriting.config" />
+    <Content Include="Config\umbracoSettings.config" />
+    <Content Include="Config\trees.config" />
+    <Content Include="Config\tinyMceConfig.config" />
+    <Content Include="Config\scripting.config" />
+    <Content Include="Config\metablogConfig.config" />
+    <Content Include="Config\log4net.config" />
+    <Content Include="Config\FileSystemProviders.config" />
+    <Content Include="Config\feedProxy.config" />
+    <Content Include="Config\ExamineSettings.config" />
+    <Content Include="Config\ExamineIndex.config" />
+    <Content Include="Config\EmbeddedMedia.config" />
+    <Content Include="Config\Dashboard.config" />
+    <Content Include="Config\ClientDependency.config" />
+    <Content Include="Config\BaseRestExtensions.config" />
+    <Content Include="Config\applications.config" />
+    <Content Include="Config\404handlers.config" />
+    <Content Include="Scripts\jquery-2.2.2.min.map" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\MacroPartials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\grid.editors.config.js" />
+    <Content Include="Config\Lang\cs-CZ.user.xml" />
+    <Content Include="Config\Lang\da-DK.user.xml" />
+    <Content Include="Config\Lang\de-DE.user.xml" />
+    <Content Include="Config\Lang\en-GB.user.xml" />
+    <Content Include="Config\Lang\en-US.user.xml" />
+    <Content Include="Config\Lang\es-ES.user.xml" />
+    <Content Include="Config\Lang\fr-FR.user.xml" />
+    <Content Include="Config\Lang\he-IL.user.xml" />
+    <Content Include="Config\Lang\it-IT.user.xml" />
+    <Content Include="Config\Lang\ja-JP.user.xml" />
+    <Content Include="Config\Lang\ko-KR.user.xml" />
+    <Content Include="Config\Lang\nb-NO.user.xml" />
+    <Content Include="Config\Lang\nl-NL.user.xml" />
+    <Content Include="Config\Lang\pl-PL.user.xml" />
+    <Content Include="Config\Lang\pt-BR.user.xml" />
+    <Content Include="Config\Lang\ru-RU.user.xml" />
+    <Content Include="Config\Lang\sv-SE.user.xml" />
+    <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-2.2.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Views\MacroPartials\InsertUmbracoForm.cshtml" />
+    <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
+    <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
+    <Content Include="Views\Partials\Forms\Export\html.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBox.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBoxList.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.DatePicker.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.DropDownList.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.FileUpload.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.HiddenField.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.PasswordField.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.RadioButtonList.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.Recaptcha.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Text.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Textarea.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.Textfield.cshtml" />
+    <Content Include="Views\Partials\Forms\Form.cshtml" />
+    <Content Include="Views\Partials\Forms\Script.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ContactFormSurfaceController.cs" />
+    <Compile Include="Models\ContactForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\packages\created\" />
+    <Folder Include="App_Data\TEMP\FileUploads\" />
+    <Folder Include="App_Data\TEMP\Install\" />
+    <Folder Include="Views\ContactFormSurface\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54055</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54055/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.3.8\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.3.8\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.3.8\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.3.8\build\UmbracoCms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\packages\UmbracoCms.7.3.8\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.3.8\build\UmbracoCms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

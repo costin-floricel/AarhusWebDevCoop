@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using System.Xml
+@using System.Xml.Linq
+@using umbraco.MacroEngines
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using Newtonsoft.Json; 
+@using Umbraco.Web.Models;
+	<h1 class="well well-sm">Active Members</h1>
+@{
+var memberService =
+ApplicationContext.Current.Services.MemberService;
+var members = memberService.GetMembersByGroup("Active");
+}
+
+@foreach (var member in members) {
+	
+	if (member.GetValue("photo") != null)
+	{
+		string image = member.GetValue<string>("photo");
+		ImageCropDataSet imageCrops = JsonConvert.DeserializeObject<ImageCropDataSet>(image);
+		string imagePath = imageCrops.Src.GetCropUrl();
+		<img src="@imagePath" /><br>
+	}
+	<hr>
+<p class="well well-lg">
+@member.GetValue("firstname")
+@member.GetValue("lastname") <br>
+@member.GetValue("address")<br>
+@member.GetValue("zip") @member.GetValue("city") <br>
+Email: @member.Email<br>
+	Skills:
+	@{
+String[] skills = @member.GetValue("skills").ToString().Split(',');
+string skillString =
+string.Join(", ", from skill in skills
+select umbraco.library.GetPreValueAsString(Convert.ToInt32(skill)));
+	}
+<span>@skillString</span><br>
+</p>
+}

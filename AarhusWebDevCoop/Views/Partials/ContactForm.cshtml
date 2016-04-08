@@ -1,0 +1,61 @@
+﻿@model AarhusWebDevCoop.Models.ContactForm
+@{
+    Layout = null;
+}
+
+@using (Html.BeginUmbracoForm("HandleFormSubmit", "ContactFormSurface", new object { },
+new { @class = "form-horizontal" }))
+{
+ <form class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Name, new
+{
+    @class = "form-control",
+    placeholder = "Name"
+})
+@Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Email, new
+{
+    @class = "form-control",
+    placeholder = "Email address" })
+			@Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Subject, new
+{
+    @class = "form-control",
+    placeholder = "Subject"
+})
+			@Html.ValidationMessageFor(m => m.Subject)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-6">
+            @Html.TextAreaFor(m => m.Message, new
+{
+    @class = "form-control",
+    placeholder = "Your message"
+})
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+            <button id="contact-submit" type="submit" class="btn btn-primary input-medium pullleft">Send</button>
+        </div>
+    </div>
+</form>
+}
+
+
